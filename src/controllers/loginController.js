@@ -4,17 +4,17 @@
 var firebase = require("firebase/app");
 // Add the Firebase products that you want to use
 const { getAuth, signInWithEmailAndPassword } = require("firebase/auth");
-const { ref, set } = require("firebase/firestore");
-require("dotenv");
+require("firebase/firestore");
+require("dotenv").config();
 const login = (req, res) => {
   const { email, password } = req.body;
   const firebaseConfig = {
     apiKey: process.env.apiKey,
     authDomain: process.env.authDomain,
     projectId: process.env.projectId,
-    storageBucket: proccess.env.storageBucket,
-    messagingSenderId: proccess.env.messagingSenderId,
-    appId: proccess.env.appId,
+    storageBucket: process.env.storageBucket,
+    messagingSenderId: process.env.messagingSenderId,
+    appId: process.env.appId,
     measurementId: process.env.measurementId,
   };
 
@@ -22,7 +22,6 @@ const login = (req, res) => {
   const app = firebase.initializeApp(firebaseConfig);
 
   const auth = getAuth();
-  ref("user/").set("email");
 
   let result;
   signInWithEmailAndPassword(auth, email, password)

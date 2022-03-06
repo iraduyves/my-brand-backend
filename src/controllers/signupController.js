@@ -1,6 +1,6 @@
 // Firebase App (the core Firebase SDK) is always required and
 // must be listed before other Firebase SDKs
-
+require("dotenv").config();
 var firebase = require("firebase/app");
 
 const { getMultiFactorResolver } = require("firebase/auth");
@@ -15,9 +15,9 @@ const login = (req, res) => {
     apiKey: process.env.apiKey,
     authDomain: process.env.authDomain,
     projectId: process.env.projectId,
-    storageBucket: proccess.env.storageBucket,
-    messagingSenderId: proccess.env.messagingSenderId,
-    appId: proccess.env.appId,
+    storageBucket: process.env.storageBucket,
+    messagingSenderId: process.env.messagingSenderId,
+    appId: process.env.appId,
     measurementId: process.env.measurementId,
   };
 
